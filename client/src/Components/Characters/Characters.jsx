@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getCharacters, getOneCharacter } from '../../Redux/Action-Creators/Characters';
+import leftButton from '../../svg/left-arrow.svg';
+import rightButton from '../../svg/next.svg';
+
 import './Characters.css';
 
 const Characters = () => {
@@ -21,8 +24,6 @@ const Characters = () => {
     dispatch(getCharacters(page));
   }, [page]);
 
-  console.log(characters);
-
   const handlerSingleHero = (id) => {
     dispatch(getOneCharacter(id));
     history.push('/hero');
@@ -30,7 +31,9 @@ const Characters = () => {
 
   return (
     <div className="all-items">
-      <button type="button" onClick={() => { setPage((prev) => prev - 0.5); }}>Prev</button>
+      <a className="arrows-container" onClick={() => { setPage((prev) => prev - 0.5); }}>
+        <img className="arrows" alt="" src={leftButton} />
+      </a>
       <div className="characters-container">
         {characters.map((el) => {
           return (
@@ -41,7 +44,9 @@ const Characters = () => {
           );
         })}
       </div>
-      <button type="button" onClick={() => { setPage((prev) => prev + 0.5); }}>Next</button>
+      <a className="arrows-container" onClick={() => { setPage((prev) => prev + 0.5); }}>
+        <img className="arrows" alt="" src={rightButton} />
+      </a>
     </div>
   );
 };

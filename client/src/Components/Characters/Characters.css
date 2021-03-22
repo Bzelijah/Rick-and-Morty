@@ -1,9 +1,9 @@
 .characters-container{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   width: 90%;
-  margin-left: 2%;
+  /* margin-left: 2%; */
   margin-top: 12px;
   height: 600px;
 }
@@ -19,12 +19,13 @@
 .card:hover {
     position: relative;
     opacity: 1;
-    transform: scale(1.1); /*вот так*/
+    transform: scale(1.1);
 }
 
 .all-items {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .card .name{
@@ -32,12 +33,20 @@
   justify-content: center;
 }
 
-button{
+.arrows{
+  width: 40px;
+  height: 25px;
+}
+
+.arrows:hover{
+pointer-events: none;
+  filter: invert(91%) sepia(8%) saturate(68%) hue-rotate(176deg) brightness(105%) contrast(88%);}
+
+.arrows-container {
   display: flex;
-  margin-top: 305px;
-  width: 20px;
-  height: 10px;
-  margin-left: 20px;
+  justify-content: center;
+  margin-top: 22.4%;
+  
 }
 
 img {
